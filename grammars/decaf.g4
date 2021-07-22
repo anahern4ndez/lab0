@@ -2,16 +2,18 @@ grammar decaf;
 
 LETTER : [a-z]+ | [A-Z]+ ;
 DIGIT : [0-9]+ ;
-ID :  LETTER (LETTER | DIGIT )* ;
+ID :  LETTER (LETTER | DIGIT)* ;
 NUM : DIGIT (DIGIT)* ;
 CHAR : LETTER ;
+WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines, \r (Windows)
+SPACE : ' ' -> skip ;
 
 program : 'class' 'Program' '{' (declaration)* '}' ;
 declaration : structDeclaration | varDeclaration | methodDeclaration ;
 varDeclaration : varType ID ';' | varType ID '[' NUM ']' ';';
 structDeclaration : 'struct' ID '{' (varDeclaration)* '}' ;
-varType : 'int' | 'char' | 'boolean' | 'struct' ID | structDeclaration | 'void' ;
-methodDeclaration : methodType ID '(' (parameter (',')?)* ')' block ;
+varType : 'int' | 'char' | 'boolean' | 'struct' ID | structDeclaration ;
+methodDeclaration : methodType ID '(' (parameter (',' parameter)*)? ')' block ;
 methodType : 'int' | 'char' | 'boolean' | 'void' ;
 parameter : parameterType ID | parameterType ID '[' ']' ;
 parameterType : 'int' | 'char' | 'boolean' ;
@@ -26,7 +28,7 @@ statement : 'if' '(' expression ')' block ('else' block)?
 location : (ID | ID '[' expression ']') ('.' location)? ;
 expression : location | methodCall | literal | expression op expression 
         | '-' expression | '!' expression | '(' expression ')' ;
-methodCall : ID '(' (arg)*(',')* ')' ;
+methodCall : (ID)  '('  (arg (',' arg)*)*  ')';
 arg : expression ;
 op : arith_op | rel_op | eq_op | cond_op ;
 arith_op : '+' | '-' | '*' | '/' | '%' ;
