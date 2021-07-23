@@ -17,16 +17,6 @@ public interface decafListener extends ParseTreeListener {
 	 */
 	void exitProgram(decafParser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link decafParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterDeclaration(decafParser.DeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link decafParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitDeclaration(decafParser.DeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link decafParser#varDeclaration}.
 	 * @param ctx the parse tree
 	 */
@@ -56,6 +46,16 @@ public interface decafListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVarType(decafParser.VarTypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link decafParser#varId}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarId(decafParser.VarIdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link decafParser#varId}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarId(decafParser.VarIdContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link decafParser#methodDeclaration}.
 	 * @param ctx the parse tree
@@ -246,4 +246,14 @@ public interface decafListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBool_literal(decafParser.Bool_literalContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link decafParser#methodName}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodName(decafParser.MethodNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link decafParser#methodName}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodName(decafParser.MethodNameContext ctx);
 }

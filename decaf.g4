@@ -1,21 +1,26 @@
 grammar decaf;
 
 LETTER : [a-z]+ | [A-Z]+ ;
-DIGIT : [0-9]+ ;
-ID :  LETTER (LETTER | DIGIT)* ;
+ALPHA      : [a-zA-Z_];
+DIGIT : [0-9] ;
+ALPHA_NUM : ALPHA | DIGIT;
+// ID :  LETTER (LETTER | DIGIT)* ;
+ID : ALPHA ALPHA_NUM*; // for variable name
 NUM : DIGIT (DIGIT)* ;
 CHAR : LETTER ;
 WS : [\t\r\n]+ -> skip ; // skip spaces, tabs, newlines, \r (Windows)
 SPACE : ' ' -> skip ;
 
-program : 'class' 'Program' '{' (declaration)* '}' ;
-declaration : structDeclaration | varDeclaration | methodDeclaration ;
-varDeclaration : varType ID ';' | varType ID '[' NUM ']' ';';
+program : 'class' 'Program' '{' varDeclaration* methodDeclaration* '}' ;
+// declaration : structDeclaration | varDeclaration | methodDeclaration ;
+// varDeclaration : varType varId ';' | varType varId '[' NUM ']' ';';
+varDeclaration : varType varId ';' ;
 structDeclaration : 'struct' ID '{' (varDeclaration)* '}' ;
 varType : 'int' | 'char' | 'boolean' | 'struct' ID | structDeclaration ;
-methodDeclaration : methodType ID '(' (parameter (',' parameter)*)* ')' block ;
+varId : ID ;
+methodDeclaration : methodType methodName '(' (parameter (',' parameter)*)? ')' block ;
 methodType : 'int' | 'char' | 'boolean' | 'void' ;
-parameter : parameterType ID | parameterType ID '[' ']' ;
+parameter : parameterType varId | parameterType varId '[' ']' ;
 parameterType : 'int' | 'char' | 'boolean' ;
 block : '{' (varDeclaration)* (statement)* '}' ;
 statement : 'if' '(' expression ')' block ('else' block)? 
@@ -39,3 +44,4 @@ literal : int_literal | char_literal | bool_literal ;
 int_literal : NUM ;
 char_literal : '\'' CHAR '\'' ;
 bool_literal : 'true' | 'false' ;
+methodName : ID ;

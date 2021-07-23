@@ -1,4 +1,4 @@
-grammar Decaf;
+grammar test;
 
 /*
  * File Contains Lexer and Parser Rules for Decaf Language

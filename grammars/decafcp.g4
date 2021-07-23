@@ -1,4 +1,4 @@
-grammar decaf;
+grammar decafcp;
 
 LETTER : [a-z]+ | [A-Z]+ ;
 DIGIT : [0-9]+ ;
@@ -8,8 +8,7 @@ CHAR : LETTER ;
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines, \r (Windows)
 SPACE : ' ' -> skip ;
 
-program : 'class' 'Program' '{' (declaration)* '}' ;
-declaration : structDeclaration | varDeclaration | methodDeclaration ;
+program : 'class' 'Program' '{' varDeclaration* methodDeclaration* '}' ;
 varDeclaration : varType ID ';' | varType ID '[' NUM ']' ';';
 structDeclaration : 'struct' ID '{' (varDeclaration)* '}' ;
 varType : 'int' | 'char' | 'boolean' | 'struct' ID | structDeclaration ;

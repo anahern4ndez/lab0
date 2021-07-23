@@ -27,18 +27,6 @@ public class decafBaseListener implements decafListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaration(decafParser.DeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDeclaration(decafParser.DeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVarDeclaration(decafParser.VarDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -70,6 +58,18 @@ public class decafBaseListener implements decafListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVarType(decafParser.VarTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVarId(decafParser.VarIdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarId(decafParser.VarIdContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -298,6 +298,18 @@ public class decafBaseListener implements decafListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitBool_literal(decafParser.Bool_literalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMethodName(decafParser.MethodNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMethodName(decafParser.MethodNameContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
