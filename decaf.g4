@@ -10,6 +10,9 @@ DIGIT : [0-9] ;
 // ID :  LETTER (LETTER | DIGIT)* ;
 WS : [\t\r\n]+ -> skip ; // skip spaces, tabs, newlines, \r (Windows)
 SPACE : ' ' -> skip ;
+LINE_COMMENT : '//' .*? '\n' -> skip; // skip single line comments starting from // and ending with new line
+COMMENT : '/*' .*? '*/' -> skip; // skip mutliple comments
+
 
 program : 'class' 'Program' '{' declaration* '}' ;
 declaration : structDeclaration | varDeclaration | methodDeclaration ;
