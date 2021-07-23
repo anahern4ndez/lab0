@@ -4,6 +4,8 @@ ID : ALPHA ALPHA_NUM* ; // for variable name
 NUM : DIGIT (DIGIT)* ;
 ALPHA_NUM : ALPHA | DIGIT ;
 CHAR : LETTER ;
+// STRING : ('\\' [btnfr"'\\] | ~[\r\n\\"] )+ ;
+// STRING : LETTER+ DIGIT+ ;
 LETTER : [a-z]+ | [A-Z]+ ;
 ALPHA      : [a-zA-Z_];
 DIGIT : [0-9] ;
@@ -14,17 +16,17 @@ LINE_COMMENT : '//' .*? '\n' -> skip; // skip single line comments starting from
 COMMENT : '/*' .*? '*/' -> skip; // skip mutliple comments
 
 
-program : 'class' 'Program' '{' declaration* '}' ;
+program : 'class' ID '{' declaration* '}' ;
 declaration : structDeclaration | varDeclaration | methodDeclaration ;
 varDeclaration : varType varId ';' | varType varId '[' NUM ']' ';';
 // varDeclaration : varType varId ';' ;
 structDeclaration : 'struct' ID '{' (varDeclaration)* '}' ;
-varType : 'int' | 'char' | 'boolean' | 'struct' ID | structDeclaration ;
+varType : 'int' | 'char' | 'boolean' | 'string' | 'struct' ID | structDeclaration ;
 varId : ID ;
 methodDeclaration : methodType ID '(' (parameter (',' parameter)*)? ')' block ;
 methodType : 'int' | 'char' | 'boolean' | 'void' ;
 parameter : parameterType varId | parameterType varId '[' ']' ;
-parameterType : 'int' | 'char' | 'boolean' ;
+parameterType : 'int' | 'char' | 'boolean' | 'string';
 block : '{' (varDeclaration)* (statement)* '}' ;
 statement : 'if' '(' expression ')' block ('else' block)? 
         | 'while' '(' expression ')' block
@@ -43,8 +45,9 @@ arith_op : '+' | '-' | '*' | '/' | '%' ;
 rel_op : '<' | '>' | '<=' | '>=' ;
 eq_op : '==' | '!=' ;
 cond_op : '&&' | '||' ;
-literal : int_literal | char_literal | bool_literal ;
+literal : int_literal | char_literal | bool_literal | string_literal;
 int_literal : NUM ;
 char_literal : '\'' CHAR '\'' ;
+string_literal : '"' ID '"' ;
 bool_literal : 'true' | 'false' ;
 methodName : ID ;

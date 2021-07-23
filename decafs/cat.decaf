@@ -2,12 +2,12 @@ class Cat {
     string breed;
     string color;
     int age;
-    Cat() {
+    void Cat() {
         self.breed = "unknown";
         self.color = "white";
         self.age = 0;
     }
-    Cat(string breed, string color, int age) {
+    void Cat(string breed, string color, int age) {
         self.breed = breed;
         self.color = color;
         self.age = age;

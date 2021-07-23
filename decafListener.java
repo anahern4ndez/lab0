@@ -247,6 +247,16 @@ public interface decafListener extends ParseTreeListener {
 	 */
 	void exitChar_literal(decafParser.Char_literalContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link decafParser#string_literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterString_literal(decafParser.String_literalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link decafParser#string_literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitString_literal(decafParser.String_literalContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link decafParser#bool_literal}.
 	 * @param ctx the parse tree
 	 */
