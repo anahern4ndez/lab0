@@ -37,16 +37,6 @@ public interface decafListener extends ParseTreeListener {
 	 */
 	void exitVarDeclaration(decafParser.VarDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link decafParser#fieldDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterFieldDeclaration(decafParser.FieldDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link decafParser#fieldDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitFieldDeclaration(decafParser.FieldDeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link decafParser#structDeclaration}.
 	 * @param ctx the parse tree
 	 */
@@ -66,26 +56,6 @@ public interface decafListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVarType(decafParser.VarTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link decafParser#arrayId}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayId(decafParser.ArrayIdContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link decafParser#arrayId}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayId(decafParser.ArrayIdContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link decafParser#fieldVar}.
-	 * @param ctx the parse tree
-	 */
-	void enterFieldVar(decafParser.FieldVarContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link decafParser#fieldVar}.
-	 * @param ctx the parse tree
-	 */
-	void exitFieldVar(decafParser.FieldVarContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link decafParser#varId}.
 	 * @param ctx the parse tree
@@ -157,25 +127,15 @@ public interface decafListener extends ParseTreeListener {
 	 */
 	void exitStatement(decafParser.StatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link decafParser#methodCallI}.
+	 * Enter a parse tree produced by {@link decafParser#location}.
 	 * @param ctx the parse tree
 	 */
-	void enterMethodCallI(decafParser.MethodCallIContext ctx);
+	void enterLocation(decafParser.LocationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link decafParser#methodCallI}.
+	 * Exit a parse tree produced by {@link decafParser#location}.
 	 * @param ctx the parse tree
 	 */
-	void exitMethodCallI(decafParser.MethodCallIContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link decafParser#methodCall}.
-	 * @param ctx the parse tree
-	 */
-	void enterMethodCall(decafParser.MethodCallContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link decafParser#methodCall}.
-	 * @param ctx the parse tree
-	 */
-	void exitMethodCall(decafParser.MethodCallContext ctx);
+	void exitLocation(decafParser.LocationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link decafParser#expression}.
 	 * @param ctx the parse tree
@@ -187,15 +147,15 @@ public interface decafListener extends ParseTreeListener {
 	 */
 	void exitExpression(decafParser.ExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link decafParser#location}.
+	 * Enter a parse tree produced by {@link decafParser#methodCall}.
 	 * @param ctx the parse tree
 	 */
-	void enterLocation(decafParser.LocationContext ctx);
+	void enterMethodCall(decafParser.MethodCallContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link decafParser#location}.
+	 * Exit a parse tree produced by {@link decafParser#methodCall}.
 	 * @param ctx the parse tree
 	 */
-	void exitLocation(decafParser.LocationContext ctx);
+	void exitMethodCall(decafParser.MethodCallContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link decafParser#arg}.
 	 * @param ctx the parse tree
