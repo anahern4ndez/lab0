@@ -1,12 +1,12 @@
 grammar decaf;
 
+ID : ALPHA ALPHA_NUM*; // for variable name
+NUM : DIGIT (DIGIT)* ;
+ALPHA_NUM : ALPHA | DIGIT;
 LETTER : [a-z]+ | [A-Z]+ ;
 ALPHA      : [a-zA-Z_];
 DIGIT : [0-9] ;
-ALPHA_NUM : ALPHA | DIGIT;
 // ID :  LETTER (LETTER | DIGIT)* ;
-ID : ALPHA ALPHA_NUM*; // for variable name
-NUM : DIGIT (DIGIT)* ;
 CHAR : LETTER ;
 WS : [\t\r\n]+ -> skip ; // skip spaces, tabs, newlines, \r (Windows)
 SPACE : ' ' -> skip ;

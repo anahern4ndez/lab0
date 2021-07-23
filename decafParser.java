@@ -21,7 +21,7 @@ public class decafParser extends Parser {
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
 		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
 		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, T__37=38, 
-		T__38=39, LETTER=40, ALPHA=41, DIGIT=42, ALPHA_NUM=43, ID=44, NUM=45, 
+		T__38=39, ID=40, NUM=41, ALPHA_NUM=42, LETTER=43, ALPHA=44, DIGIT=45, 
 		CHAR=46, WS=47, SPACE=48;
 	public static final int
 		RULE_program = 0, RULE_declaration = 1, RULE_varDeclaration = 2, RULE_fieldDeclaration = 3, 
@@ -60,8 +60,8 @@ public class decafParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, "LETTER", "ALPHA", "DIGIT", "ALPHA_NUM", "ID", 
-			"NUM", "CHAR", "WS", "SPACE"
+			null, null, null, null, "ID", "NUM", "ALPHA_NUM", "LETTER", "ALPHA", 
+			"DIGIT", "CHAR", "WS", "SPACE"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -2122,11 +2122,11 @@ public class decafParser extends Parser {
 		"\2\2H\3\3\2\2\2IM\5\n\6\2JM\5\b\5\2KM\5\24\13\2LI\3\2\2\2LJ\3\2\2\2LK"+
 		"\3\2\2\2M\5\3\2\2\2NO\5\f\7\2OP\5\22\n\2PQ\7\7\2\2Q\7\3\2\2\2RS\5\f\7"+
 		"\2SX\5\20\t\2TU\7\b\2\2UW\5\20\t\2VT\3\2\2\2WZ\3\2\2\2XV\3\2\2\2XY\3\2"+
-		"\2\2Y[\3\2\2\2ZX\3\2\2\2[\\\7\7\2\2\\\t\3\2\2\2]^\7\t\2\2^_\7.\2\2_c\7"+
+		"\2\2Y[\3\2\2\2ZX\3\2\2\2[\\\7\7\2\2\\\t\3\2\2\2]^\7\t\2\2^_\7*\2\2_c\7"+
 		"\5\2\2`b\5\6\4\2a`\3\2\2\2be\3\2\2\2ca\3\2\2\2cd\3\2\2\2df\3\2\2\2ec\3"+
-		"\2\2\2fg\7\6\2\2g\13\3\2\2\2hi\t\2\2\2i\r\3\2\2\2jk\7.\2\2kl\7\r\2\2l"+
+		"\2\2\2fg\7\6\2\2g\13\3\2\2\2hi\t\2\2\2i\r\3\2\2\2jk\7*\2\2kl\7\r\2\2l"+
 		"m\5\66\34\2mn\7\16\2\2n\17\3\2\2\2or\5\22\n\2pr\5\16\b\2qo\3\2\2\2qp\3"+
-		"\2\2\2r\21\3\2\2\2st\7.\2\2t\23\3\2\2\2uv\5\26\f\2vw\5<\37\2w\u0080\7"+
+		"\2\2\2r\21\3\2\2\2st\7*\2\2t\23\3\2\2\2uv\5\26\f\2vw\5<\37\2w\u0080\7"+
 		"\17\2\2x}\5\30\r\2yz\7\b\2\2z|\5\30\r\2{y\3\2\2\2|\177\3\2\2\2}{\3\2\2"+
 		"\2}~\3\2\2\2~\u0081\3\2\2\2\177}\3\2\2\2\u0080x\3\2\2\2\u0080\u0081\3"+
 		"\2\2\2\u0081\u0082\3\2\2\2\u0082\u0083\7\20\2\2\u0083\u0084\5\34\17\2"+
@@ -2187,9 +2187,9 @@ public class decafParser extends Parser {
 		"\u0124\t\6\2\2\u0124\61\3\2\2\2\u0125\u0126\t\7\2\2\u0126\63\3\2\2\2\u0127"+
 		"\u012b\5\66\34\2\u0128\u012b\58\35\2\u0129\u012b\5:\36\2\u012a\u0127\3"+
 		"\2\2\2\u012a\u0128\3\2\2\2\u012a\u0129\3\2\2\2\u012b\65\3\2\2\2\u012c"+
-		"\u012d\7/\2\2\u012d\67\3\2\2\2\u012e\u012f\7\'\2\2\u012f\u0130\7\60\2"+
+		"\u012d\7+\2\2\u012d\67\3\2\2\2\u012e\u012f\7\'\2\2\u012f\u0130\7\60\2"+
 		"\2\u0130\u0131\7\'\2\2\u01319\3\2\2\2\u0132\u0133\t\b\2\2\u0133;\3\2\2"+
-		"\2\u0134\u0135\7.\2\2\u0135=\3\2\2\2\35DLXcq}\u0080\u008f\u0097\u009d"+
+		"\2\u0134\u0135\7*\2\2\u0135=\3\2\2\2\35DLXcq}\u0080\u008f\u0097\u009d"+
 		"\u00b3\u00c2\u00c8\u00cb\u00d1\u00da\u00dd\u00eb\u00f0\u00f2\u00f5\u00fa"+
 		"\u0108\u0110\u0115\u011d\u012a";
 	public static final ATN _ATN =
